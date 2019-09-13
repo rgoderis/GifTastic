@@ -68,12 +68,27 @@ $(document).on("click", ".gifButton", function(){
             img.attr("data-still", stillGif)
             // add attribute of data-animate set to playGif src
             img.attr("data-animate", playGif)
+            // add attribute of data-state for what the gif is currently doing
+            img.attr("data-state", "still")
             console.log(img)
             // append gif to id gif-container
             $("#gif-container").append(img)
         }
     })
     
+});
+
+// set click listener for .gif to play and pause the gif
+$(document).on("click", ".gif", function(){
+    // set data-state to a var
+    var state = $(this).attr("data-state")
+    // check to see if state is still, if so animate the gif
+    if(state === "still"){
+        // change src to data-animate
+        $(this).attr("src", $(this).attr("data-animate"))
+        // change data-state to animate
+        $(this).attr("data-state", "animate")
+    }
 })
 
 
