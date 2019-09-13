@@ -57,7 +57,14 @@ $(document).on("click", ".gifButton", function(){
             var playGif = response.data[i].images.fixed_height.url
             // find image URL for max-height still
             var stillGif = response.data[i].images.fixed_height_still.url
-            console.log(stillGif)
+            // set rating to a var
+            var rating = response.data[i].rating
+            console.log(rating)
+            // create div to put img in
+            var div = $("<div>")
+            div.addClass("gifDiv")
+            // append rating to div
+            div.append("<p>Rated: " + rating + "</p>")
             // create a img to display
             var img = $("<img>")
             // add class of gif
@@ -70,9 +77,10 @@ $(document).on("click", ".gifButton", function(){
             img.attr("data-animate", playGif)
             // add attribute of data-state for what the gif is currently doing
             img.attr("data-state", "still")
-            console.log(img)
-            // append gif to id gif-container
-            $("#gif-container").append(img)
+            // append img to div
+            div.append(img)
+            // append div to id gif-container
+            $("#gif-container").append(div)
         }
     })
     
