@@ -42,6 +42,9 @@ $("#submit").on("click", function(event){
 
 // set click listener for created gif button to display gifs
 $(document).on("click", ".gifButton", function(){
+    // clear gif-container
+    $("#gif-container").empty();
+
     // get attribute data-name of button clicked
     var search = $(this).attr("data-name")
     var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ search + "&api_key=w37zn0TRObt76z2J4oBU2NZm2HQUVtAf";
@@ -103,8 +106,5 @@ $(document).on("click", ".gif", function(){
         $(this).attr("data-state", "still")
     }
 })
-
-
-
 
 });
