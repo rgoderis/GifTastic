@@ -2,22 +2,22 @@
 // q
 // limit
 // rating
-var gifs = ["cats", "dogs"]
+var topics = ["Jedi", "Stormtrooper", "Yoda", "Darth Vader", "Star Wars", "Han Solo", "Chewbacca", "Luke Skywalker", "Obi Wan Kenobi", "Anakin Skywalker"]
 
 // function that displays gifs array content as buttons
 function renderButtons (){
     // make sure button-container is empty
     $("#button-container").empty()
     // loop through gifs array
-    for(var i = 0; i < gifs.length; i++){
+    for(var i = 0; i < topics.length; i++){
         // create a button element saved to var b
         var b = $("<button>");
         // add class of gif to b
-        b.addClass("gifButton btn btn-primary");
+        b.addClass("gifButton btn btn-dark");
         // set attribute of data-name to be what gif[i]
-        b.attr("data-name", gifs[i]);
+        b.attr("data-name", topics[i]);
         // set button text to be gif[i]
-        b.text(gifs[i])
+        b.text(topics[i])
         // add button to the button-container
         $("#button-container").append(b)
     }
@@ -35,7 +35,7 @@ $("#submit").on("click", function(event){
     // grab the value that was entered in the input and save to a var
     let gif = $("#search").val().trim();
     // add gif to the gifs array
-    gifs.push(gif);
+    topics.push(gif);
     // call renderButton()
     renderButtons()
 });
