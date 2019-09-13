@@ -13,7 +13,7 @@ function renderButtons (){
         // create a button element saved to var b
         var b = $("<button>");
         // add class of gif to b
-        b.addClass("gifButton");
+        b.addClass("gifButton btn btn-primary");
         // set attribute of data-name to be what gif[i]
         b.attr("data-name", gifs[i]);
         // set button text to be gif[i]
@@ -67,7 +67,7 @@ $(document).on("click", ".gifButton", function(){
             var div = $("<div>")
             div.addClass("gifDiv")
             // append rating to div
-            div.append("<p>Rated: " + rating + "</p>")
+            div.append("<p class='text-center'><strong>Rated: " + rating + "</strong></p>")
             // create a img to display
             var img = $("<img>")
             // add class of gif
