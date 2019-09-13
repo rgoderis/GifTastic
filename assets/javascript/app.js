@@ -33,10 +33,17 @@ $("#submit").on("click", function(event){
     event.preventDefault();
     // grab the value that was entered in the input and save to a var
     let gif = $("#search").val().trim();
-    console.log(gif);
     // add gif to the gifs array
     gifs.push(gif);
+    // call renderButton()
+    renderButtons()
 });
+
+// set click listener for created gif button to display gifs
+$(document).on("click", ".gif", function(){
+    // get attribute data-name of button clicked
+    console.log($(this).attr("data-name"))
+})
 
 
 
