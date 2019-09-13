@@ -49,6 +49,15 @@ $(document).on("click", ".gif", function(){
         method: "GET"
     }).then(function(response){
         console.log(response)
+        
+        
+        // loop throught response and get 10 results
+        for(var i=0; i < 10; i++){
+            // find image URL for max-height 
+            var playGif = response.data[i].images.fixed_height.url
+            // find image URL for max-height still
+            var stillGif = 
+        }
     })
     
 })
