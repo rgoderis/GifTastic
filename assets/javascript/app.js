@@ -1,5 +1,4 @@
-var key = "api_key=w37zn0TRObt76z2J4oBU2NZm2HQUVtAf";
-var URL = "api.giphy.com/v1/gifs/search?q=";
+
 // q
 // limit
 // rating
@@ -42,7 +41,16 @@ $("#submit").on("click", function(event){
 // set click listener for created gif button to display gifs
 $(document).on("click", ".gif", function(){
     // get attribute data-name of button clicked
-    console.log($(this).attr("data-name"))
+    var search = $(this).attr("data-name")
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ search + "&api_key=w37zn0TRObt76z2J4oBU2NZm2HQUVtAf";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response)
+    })
+    
 })
 
 
