@@ -88,6 +88,11 @@ $(document).on("click", ".gif", function(){
         $(this).attr("src", $(this).attr("data-animate"))
         // change data-state to animate
         $(this).attr("data-state", "animate")
+    } else {
+        // change src to data-still to stop playing
+        $(this).attr("src", $(this).attr("data-still"))
+        // change data-state to still
+        $(this).attr("data-state", "still")
     }
 })
 
