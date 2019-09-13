@@ -2,7 +2,7 @@
 // q
 // limit
 // rating
-var gifs = []
+var gifs = ["cats", "dogs"]
 
 // function that displays gifs array content as buttons
 function renderButtons (){
@@ -13,7 +13,7 @@ function renderButtons (){
         // create a button element saved to var b
         var b = $("<button>");
         // add class of gif to b
-        b.addClass("gif");
+        b.addClass("gifButton");
         // set attribute of data-name to be what gif[i]
         b.attr("data-name", gifs[i]);
         // set button text to be gif[i]
@@ -25,6 +25,8 @@ function renderButtons (){
 
 
 $(document).ready(function() {
+// call renderButton()
+renderButtons()
 
 // create buttons based on what the user enters in the search input
 // set click listener for submit button
@@ -39,7 +41,7 @@ $("#submit").on("click", function(event){
 });
 
 // set click listener for created gif button to display gifs
-$(document).on("click", ".gif", function(){
+$(document).on("click", ".gifButton", function(){
     // get attribute data-name of button clicked
     var search = $(this).attr("data-name")
     var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ search + "&api_key=w37zn0TRObt76z2J4oBU2NZm2HQUVtAf";
@@ -49,14 +51,26 @@ $(document).on("click", ".gif", function(){
         method: "GET"
     }).then(function(response){
         console.log(response)
-        
-        
         // loop throught response and get 10 results
         for(var i=0; i < 10; i++){
             // find image URL for max-height 
             var playGif = response.data[i].images.fixed_height.url
             // find image URL for max-height still
-            var stillGif = 
+            var stillGif = response.data[i].images.fixed_height_still.url
+            console.log(stillGif)
+            // create a img to display
+            var img = $("<img>")
+            // add class of gif
+            img.addClass("gif")
+            // add gif src of stillGif
+            img.attr("src", stillGif)
+            // add attribute of data-still set to stillGif src
+            img.attr("data-still", stillGif)
+            // add attribute of data-animate set to playGif src
+            img.attr("data-animate", playGif)
+            console.log(img)
+            // append gif to id gif-container
+            $("#gif-container").append(img)
         }
     })
     
