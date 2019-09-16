@@ -105,6 +105,13 @@ $(document).on("click", ".gif", function(){
         // change data-state to still
         $(this).attr("data-state", "still")
     }
+});
+
+$("#reset").on("click", function(){
+    $("#search-container").empty();
+    $("#gif-container").empty()
+    topics = ["Jedi", "Stormtrooper", "Yoda", "Darth Vader", "Star Wars", "Han Solo", "Chewbacca", "Luke Skywalker", "Obi Wan Kenobi", "Anakin Skywalker"];
+    renderButtons();
 })
 
 });
