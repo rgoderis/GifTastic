@@ -38,6 +38,7 @@ $("#submit").on("click", function(event){
     topics.push(gif);
     // call renderButton()
     renderButtons()
+    $("#search").val("")
 });
 
 // set click listener for created gif button to display gifs
